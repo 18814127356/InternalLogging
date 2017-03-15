@@ -1,6 +1,7 @@
 package io.logging.factory;
 
 import io.logging.InternalLogger;
+import io.logging.factory.impl.CommonsLoggerFactory;
 import io.logging.factory.impl.JdkLoggerFactory;
 import io.logging.factory.impl.Log4JLoggerFactory;
 import io.logging.factory.impl.Slf4JLoggerFactory;
@@ -23,16 +24,24 @@ public abstract class InternalLoggerFactory {
 		final String name = InternalLoggerFactory.class.getName();
 		InternalLoggerFactory f;
 		try {
-			// 优先使用Slf4J, 如果classpath下没有引入slf4j的jar包, 那么此处将会抛异常
+			// 1. check for slf4j
 			f = new Slf4JLoggerFactory(true);
 			f.newInstance(name).debug("Using SLF4J as the default logging framework");
 		} catch (Throwable t1) {
 			try {
+				// 2. check for lof4j
 				f = new Log4JLoggerFactory();
 				f.newInstance(name).debug("Using Log4J as the default logging framework");
 			} catch (Throwable t2) {
-				f = new JdkLoggerFactory();
-				f.newInstance(name).debug("Using java.util.logging as the default logging framework");
+				try {
+					// 3. check for commons-logging
+					f = new CommonsLoggerFactory();
+					f.newInstance(name).debug("Using commons-logging as the default logging framework");
+				} catch (Throwable t3) {
+					// 4. use jdk-logging
+					f = new JdkLoggerFactory();
+					f.newInstance(name).debug("Using java.util.logging as the default logging framework");
+				}
 			}
 		}
 
