@@ -3,7 +3,7 @@
 用于项目内部使用的日志框架, 不强制依赖于第三方日志实现, 但会自动检测classpath下的日志实现, 并按一定的优先级使用
 
 #### 优先级
-Slf4J > Log4J > Jdk Logging
+Slf4J > Log4J > Commons-Logging > Jdk Logging
 
 #### 使用示例
 ``` java
