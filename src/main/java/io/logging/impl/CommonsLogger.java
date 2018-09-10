@@ -1,6 +1,6 @@
 package io.logging.impl;
 
-import io.logging.AbstractInternalLogger;
+import io.logging.AbstractLogger;
 import io.logging.impl.util.FormattingTuple;
 import io.logging.impl.util.MessageFormatter;
 
@@ -12,7 +12,7 @@ import org.apache.commons.logging.Log;
  * @author lixiaohui
  * @date 2017年3月15日
  */
-public class CommonsLogger extends AbstractInternalLogger {
+public class CommonsLogger extends AbstractLogger {
 
 	private static final long serialVersionUID = 8647838678388394885L;
 

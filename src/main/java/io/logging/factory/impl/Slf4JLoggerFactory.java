@@ -1,17 +1,16 @@
 package io.logging.factory.impl;
 
-import io.logging.InternalLogger;
-import io.logging.factory.InternalLoggerFactory;
+import io.logging.Logger;
+import io.logging.factory.LoggerFactory;
 import io.logging.impl.Slf4JLogger;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
-import org.slf4j.LoggerFactory;
 import org.slf4j.helpers.NOPLoggerFactory;
 
-public class Slf4JLoggerFactory extends InternalLoggerFactory {
+public class Slf4JLoggerFactory extends LoggerFactory {
 
 	public Slf4JLoggerFactory() {
 	}
@@ -36,7 +35,7 @@ public class Slf4JLoggerFactory extends InternalLoggerFactory {
 		}
 
 		try {
-			if (LoggerFactory.getILoggerFactory() instanceof NOPLoggerFactory) {
+			if (org.slf4j.LoggerFactory.getILoggerFactory() instanceof NOPLoggerFactory) {
 				throw new NoClassDefFoundError(buf.toString());
 			} else {
 				err.print(buf.toString());
@@ -48,7 +47,7 @@ public class Slf4JLoggerFactory extends InternalLoggerFactory {
 	}
 
 	@Override
-	public InternalLogger newInstance(String name) {
-		return new Slf4JLogger(LoggerFactory.getLogger(name));
+	public Logger newInstance(String name) {
+		return new Slf4JLogger(org.slf4j.LoggerFactory.getLogger(name));
 	}
 }

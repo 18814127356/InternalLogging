@@ -1,6 +1,6 @@
 package io.logging.impl;
 
-import io.logging.AbstractInternalLogger;
+import io.logging.AbstractLogger;
 import io.logging.impl.util.FormattingTuple;
 import io.logging.impl.util.MessageFormatter;
 
@@ -14,12 +14,12 @@ import java.util.logging.Logger;
  * @author lixiaohui
  * @date 2017年3月15日
  */
-public class JdkLogger extends AbstractInternalLogger {
+public class JdkLogger extends AbstractLogger {
 
 	private static final long serialVersionUID = -1767272577989225979L;
 
 	static final String SELF = JdkLogger.class.getName();
-	static final String SUPER = AbstractInternalLogger.class.getName();
+	static final String SUPER = AbstractLogger.class.getName();
 
 	private static void fillCallerData(String callerFQCN, LogRecord record) {
 		StackTraceElement[] steArray = new Throwable().getStackTrace();

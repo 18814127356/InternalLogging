@@ -1,15 +1,14 @@
 package io.logging.factory.impl;
 
-import io.logging.InternalLogger;
-import io.logging.factory.InternalLoggerFactory;
+import io.logging.Logger;
+import io.logging.factory.LoggerFactory;
 import io.logging.impl.JdkLogger;
 
-import java.util.logging.Logger;
 
-public class JdkLoggerFactory extends InternalLoggerFactory {
+public class JdkLoggerFactory extends LoggerFactory {
 
 	@Override
-	public InternalLogger newInstance(String name) {
-		return new JdkLogger(Logger.getLogger(name));
+	public Logger newInstance(String name) {
+		return new JdkLogger(java.util.logging.Logger.getLogger(name));
 	}
 }

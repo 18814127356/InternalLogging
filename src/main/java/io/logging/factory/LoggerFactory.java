@@ -1,28 +1,28 @@
 package io.logging.factory;
 
-import io.logging.InternalLogger;
+import io.logging.Logger;
 import io.logging.factory.impl.CommonsLoggerFactory;
 import io.logging.factory.impl.JdkLoggerFactory;
 import io.logging.factory.impl.Log4JLoggerFactory;
 import io.logging.factory.impl.Slf4JLoggerFactory;
 
 /**
- * {@link InternalLogger}工厂类, 提供:
+ * {@link Logger}工厂类, 提供:
  * <ul>
- * <li>创建{@link InternalLogger}实例的便捷方法</li>
- * <li>用{@link InternalLoggerFactory}.setDefaultFactory(new
+ * <li>创建{@link Logger}实例的便捷方法</li>
+ * <li>用{@link LoggerFactory}.setDefaultFactory(new
  * {@link Log4JLoggerFactory}())设置使用的日志实现</li>
  * </ul>
  * 
  * @author lixiaohui
  * @date 2017年3月15日
  */
-public abstract class InternalLoggerFactory {
-	private static volatile InternalLoggerFactory defaultFactory;
+public abstract class LoggerFactory {
+	private static volatile LoggerFactory defaultFactory;
 
 	static {
-		final String name = InternalLoggerFactory.class.getName();
-		InternalLoggerFactory f;
+		final String name = LoggerFactory.class.getName();
+		LoggerFactory f;
 		try {
 			// 1. check for slf4j
 			f = new Slf4JLoggerFactory(true);
@@ -51,33 +51,33 @@ public abstract class InternalLoggerFactory {
 	/**
 	 * 获取默认的日志实现工厂实现
 	 */
-	public static InternalLoggerFactory getDefaultFactory() {
+	public static LoggerFactory getDefaultFactory() {
 		return defaultFactory;
 	}
 
 	/**
 	 * 设置默认的日志实现工厂实现
 	 */
-	public static void setDefaultFactory(InternalLoggerFactory defaultFactory) {
+	public static void setDefaultFactory(LoggerFactory defaultFactory) {
 		if (defaultFactory == null) {
 			throw new NullPointerException("defaultFactory");
 		}
-		InternalLoggerFactory.defaultFactory = defaultFactory;
+		LoggerFactory.defaultFactory = defaultFactory;
 	}
 
 	/**
 	 * 获取Logger实例
 	 */
-	public static InternalLogger getInstance(Class<?> clazz) {
+	public static Logger getInstance(Class<?> clazz) {
 		return getInstance(clazz.getName());
 	}
 
 	/**
 	 * 获取Logger实例
 	 */
-	public static InternalLogger getInstance(String name) {
+	public static Logger getInstance(String name) {
 		return getDefaultFactory().newInstance(name);
 	}
 
-	protected abstract InternalLogger newInstance(String name);
+	protected abstract Logger newInstance(String name);
 }

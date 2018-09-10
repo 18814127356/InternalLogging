@@ -1,24 +1,24 @@
 package io.logging;
 
-import io.logging.factory.InternalLoggerFactory;
+import io.logging.factory.LoggerFactory;
 
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * {@link InternalLogger}的骨架实现, 实现了所有带{@link InternalLogLevel}参数的方法
+ * {@link Logger}的骨架实现, 实现了所有带{@link LogLevel}参数的方法
  * 
  * @author lixiaohui
  * @date 2017年3月15日
  */
-public abstract class AbstractInternalLogger implements InternalLogger, Serializable {
+public abstract class AbstractLogger implements Logger, Serializable {
 
 	private static final long serialVersionUID = -6382972526573193470L;
 
 	private final String name;
 
-	protected AbstractInternalLogger(String name) {
+	protected AbstractLogger(String name) {
 		if (name == null) {
 			throw new NullPointerException("name");
 		}
@@ -31,7 +31,7 @@ public abstract class AbstractInternalLogger implements InternalLogger, Serializ
 	}
 
 	@Override
-	public boolean isEnabled(InternalLogLevel level) {
+	public boolean isEnabled(LogLevel level) {
 		Objects.requireNonNull(level, "level");
 
 		switch (level) {
@@ -51,7 +51,7 @@ public abstract class AbstractInternalLogger implements InternalLogger, Serializ
 	}
 
 	@Override
-	public void log(InternalLogLevel level, String msg, Throwable cause) {
+	public void log(LogLevel level, String msg, Throwable cause) {
 		switch (level) {
 		case TRACE:
 			trace(msg, cause);
@@ -74,7 +74,7 @@ public abstract class AbstractInternalLogger implements InternalLogger, Serializ
 	}
 
 	@Override
-	public void log(InternalLogLevel level, String msg) {
+	public void log(LogLevel level, String msg) {
 		switch (level) {
 		case TRACE:
 			trace(msg);
@@ -97,7 +97,7 @@ public abstract class AbstractInternalLogger implements InternalLogger, Serializ
 	}
 
 	@Override
-	public void log(InternalLogLevel level, String format, Object arg) {
+	public void log(LogLevel level, String format, Object arg) {
 		switch (level) {
 		case TRACE:
 			trace(format, arg);
@@ -120,7 +120,7 @@ public abstract class AbstractInternalLogger implements InternalLogger, Serializ
 	}
 
 	@Override
-	public void log(InternalLogLevel level, String format, Object argA, Object argB) {
+	public void log(LogLevel level, String format, Object argA, Object argB) {
 		switch (level) {
 		case TRACE:
 			trace(format, argA, argB);
@@ -143,7 +143,7 @@ public abstract class AbstractInternalLogger implements InternalLogger, Serializ
 	}
 
 	@Override
-	public void log(InternalLogLevel level, String format, Object... arguments) {
+	public void log(LogLevel level, String format, Object... arguments) {
 		switch (level) {
 		case TRACE:
 			trace(format, arguments);
@@ -166,7 +166,7 @@ public abstract class AbstractInternalLogger implements InternalLogger, Serializ
 	}
 
 	protected Object readResolve() throws ObjectStreamException {
-		return InternalLoggerFactory.getInstance(name());
+		return LoggerFactory.getInstance(name());
 	}
 
 	@Override

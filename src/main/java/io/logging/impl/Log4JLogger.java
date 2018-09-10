@@ -1,6 +1,6 @@
 package io.logging.impl;
 
-import io.logging.AbstractInternalLogger;
+import io.logging.AbstractLogger;
 import io.logging.impl.util.FormattingTuple;
 import io.logging.impl.util.MessageFormatter;
 
@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
  * @author lixiaohui
  * @date 2017年3月15日
  */
-public class Log4JLogger extends AbstractInternalLogger {
+public class Log4JLogger extends AbstractLogger {
 
 	private static final long serialVersionUID = 2851357342488183058L;
 

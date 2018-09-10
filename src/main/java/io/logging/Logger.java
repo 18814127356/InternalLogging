@@ -8,7 +8,7 @@ package io.logging;
  * @author lixiaohui
  * @date 2017年3月15日
  */
-public interface InternalLogger {
+public interface Logger {
 
 	/**
 	 * 日志打印级别
@@ -16,7 +16,7 @@ public interface InternalLogger {
 	 * @author lixiaohui
 	 * @date 2017年3月15日
 	 */
-	public static enum InternalLogLevel {
+	public static enum LogLevel {
 
 		TRACE,
 
@@ -30,7 +30,7 @@ public interface InternalLogger {
 	}
 
 	/**
-	 * Return the name of this {@link InternalLogger} instance.
+	 * Return the name of this {@link Logger} instance.
 	 *
 	 * @return name of this logger instance
 	 */
@@ -452,7 +452,7 @@ public interface InternalLogger {
 	 * @return True if this Logger is enabled for the specified {@code level},
 	 *         false otherwise.
 	 */
-	boolean isEnabled(InternalLogLevel level);
+	boolean isEnabled(LogLevel level);
 
 	/**
 	 * Log a message at the specified {@code level}.
@@ -460,7 +460,7 @@ public interface InternalLogger {
 	 * @param msg
 	 *            the message string to be logged
 	 */
-	void log(InternalLogLevel level, String msg);
+	void log(LogLevel level, String msg);
 
 	/**
 	 * Log a message at the specified {@code level} according to the specified
@@ -476,7 +476,7 @@ public interface InternalLogger {
 	 * @param arg
 	 *            the argument
 	 */
-	void log(InternalLogLevel level, String format, Object arg);
+	void log(LogLevel level, String format, Object arg);
 
 	/**
 	 * Log a message at the specified {@code level} according to the specified
@@ -494,7 +494,7 @@ public interface InternalLogger {
 	 * @param argB
 	 *            the second argument
 	 */
-	void log(InternalLogLevel level, String format, Object argA, Object argB);
+	void log(LogLevel level, String format, Object argA, Object argB);
 
 	/**
 	 * Log a message at the specified {@code level} according to the specified
@@ -506,8 +506,8 @@ public interface InternalLogger {
 	 * the hidden (and relatively small) cost of creating an {@code Object[]}
 	 * before invoking the method, even if this logger is disabled for the
 	 * specified {@code level}. The variants taking
-	 * {@link #log(InternalLogLevel, String, Object) one} and
-	 * {@link #log(InternalLogLevel, String, Object, Object) two} arguments
+	 * {@link #log(LogLevel, String, Object) one} and
+	 * {@link #log(LogLevel, String, Object, Object) two} arguments
 	 * exist solely in order to avoid this hidden cost.
 	 * </p>
 	 *
@@ -516,7 +516,7 @@ public interface InternalLogger {
 	 * @param arguments
 	 *            a list of 3 or more arguments
 	 */
-	void log(InternalLogLevel level, String format, Object... arguments);
+	void log(LogLevel level, String format, Object... arguments);
 
 	/**
 	 * Log an exception (throwable) at the specified {@code level} with an
@@ -527,5 +527,5 @@ public interface InternalLogger {
 	 * @param t
 	 *            the exception (throwable) to log
 	 */
-	void log(InternalLogLevel level, String msg, Throwable t);
+	void log(LogLevel level, String msg, Throwable t);
 }

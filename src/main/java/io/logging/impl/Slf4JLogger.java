@@ -1,6 +1,6 @@
 package io.logging.impl;
 
-import io.logging.AbstractInternalLogger;
+import io.logging.AbstractLogger;
 
 import org.slf4j.Logger;
 
@@ -10,7 +10,7 @@ import org.slf4j.Logger;
  * @author lixiaohui
  * @date 2017年3月15日
  */
-public class Slf4JLogger extends AbstractInternalLogger {
+public class Slf4JLogger extends AbstractLogger {
 
     private static final long serialVersionUID = 108038972685130825L;
 
