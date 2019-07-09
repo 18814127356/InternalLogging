@@ -1,4 +1,4 @@
-package io.logging.impl.util;
+package logging.util;
 
 /**
  * Holds the results of formatting done by {@link MessageFormatter}.

@@ -1,14 +1,15 @@
-package io.logging.factory.impl;
-
-import io.logging.Logger;
-import io.logging.factory.LoggerFactory;
-import io.logging.impl.CommonsLogger;
+package logging;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.logging.LogFactory;
 
+/**
+ * apache commons logger
+ * 
+ * @author winflex
+ */
 public class CommonsLoggerFactory extends LoggerFactory {
 
 	Map<String, Logger> loggerMap = new HashMap<String, Logger>();

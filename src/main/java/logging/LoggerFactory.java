@@ -1,10 +1,4 @@
-package io.logging.factory;
-
-import io.logging.Logger;
-import io.logging.factory.impl.CommonsLoggerFactory;
-import io.logging.factory.impl.JdkLoggerFactory;
-import io.logging.factory.impl.Log4JLoggerFactory;
-import io.logging.factory.impl.Slf4JLoggerFactory;
+package logging;
 
 /**
  * {@link Logger}工厂类, 提供:
@@ -14,8 +8,7 @@ import io.logging.factory.impl.Slf4JLoggerFactory;
  * {@link Log4JLoggerFactory}())设置使用的日志实现</li>
  * </ul>
  * 
- * @author lixiaohui
- * @date 2017年3月15日
+ * @author winflex
  */
 public abstract class LoggerFactory {
 	private static volatile LoggerFactory defaultFactory;

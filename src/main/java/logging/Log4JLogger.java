@@ -1,8 +1,7 @@
-package io.logging.impl;
+package logging;
 
-import io.logging.AbstractLogger;
-import io.logging.impl.util.FormattingTuple;
-import io.logging.impl.util.MessageFormatter;
+import logging.util.FormattingTuple;
+import logging.util.MessageFormatter;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -10,8 +9,7 @@ import org.apache.log4j.Logger;
 /**
  * 这里组合Log4J的Logger, 所有打日志实现都交由Log4J去做
  * 
- * @author lixiaohui
- * @date 2017年3月15日
+ * @author winflex
  */
 public class Log4JLogger extends AbstractLogger {
 

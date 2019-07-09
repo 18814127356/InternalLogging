@@ -1,9 +1,10 @@
-package io.logging.factory.impl;
+package logging;
 
-import io.logging.Logger;
-import io.logging.factory.LoggerFactory;
-import io.logging.impl.Log4JLogger;
-
+/**
+ * Log4j logger
+ * 
+ * @author winflex
+ */
 public class Log4JLoggerFactory extends LoggerFactory {
 
 	@Override

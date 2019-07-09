@@ -1,4 +1,4 @@
-package io.logging.impl.util;
+package logging.util;
 
 import java.text.MessageFormat;
 import java.util.HashMap;

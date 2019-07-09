@@ -1,16 +1,14 @@
-package io.logging.impl;
+package logging;
 
-import io.logging.AbstractLogger;
-import io.logging.impl.util.FormattingTuple;
-import io.logging.impl.util.MessageFormatter;
+import logging.util.FormattingTuple;
+import logging.util.MessageFormatter;
 
 import org.apache.commons.logging.Log;
 
 /**
  * 这里组合apache commons-loggings的Logger, 所有打日志实现都交由commons-loggings去做
  * 
- * @author lixiaohui
- * @date 2017年3月15日
+ * @author winflex
  */
 public class CommonsLogger extends AbstractLogger {
 

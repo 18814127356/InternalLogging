@@ -1,14 +1,11 @@
-package io.logging.impl;
-
-import io.logging.AbstractLogger;
+package logging;
 
 import org.slf4j.Logger;
 
 /**
- * 这里组合Slf4J的Logger, 所有打日志实现都交由Slj4J去做
+ * Slf4J logger
  * 
- * @author lixiaohui
- * @date 2017年3月15日
+ * @author winflex
  */
 public class Slf4JLogger extends AbstractLogger {
 

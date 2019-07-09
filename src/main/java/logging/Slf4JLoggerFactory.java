@@ -1,8 +1,4 @@
-package io.logging.factory.impl;
-
-import io.logging.Logger;
-import io.logging.factory.LoggerFactory;
-import io.logging.impl.Slf4JLogger;
+package logging;
 
 import java.io.OutputStream;
 import java.io.PrintStream;

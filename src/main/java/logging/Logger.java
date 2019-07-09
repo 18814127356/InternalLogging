@@ -1,19 +1,18 @@
-package io.logging;
+package logging;
 
 
 /**
  * 内部Logging机制, 本身不实现日志的打印, 同时不依赖于任何第三方日志实现, 而是自动检测classpath下是否有第三方日志实现,
  * 如果有则按照一定的优先级来选择日志实现
  * 
- * @author lixiaohui
- * @date 2017年3月15日
+ * @author winflex
  */
 public interface Logger {
 
 	/**
 	 * 日志打印级别
 	 * 
-	 * @author lixiaohui
+	 * @author winflex
 	 * @date 2017年3月15日
 	 */
 	public static enum LogLevel {

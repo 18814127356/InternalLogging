@@ -1,8 +1,7 @@
-package io.logging.impl;
+package logging;
 
-import io.logging.AbstractLogger;
-import io.logging.impl.util.FormattingTuple;
-import io.logging.impl.util.MessageFormatter;
+import logging.util.FormattingTuple;
+import logging.util.MessageFormatter;
 
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -11,8 +10,7 @@ import java.util.logging.Logger;
 /**
  * 这里组合JdkLogger的Logger, 所有打日志实现都交由JdkLogger去做
  * 
- * @author lixiaohui
- * @date 2017年3月15日
+ * @author winflex
  */
 public class JdkLogger extends AbstractLogger {
 

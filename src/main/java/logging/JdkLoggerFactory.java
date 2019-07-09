@@ -1,10 +1,10 @@
-package io.logging.factory.impl;
+package logging;
 
-import io.logging.Logger;
-import io.logging.factory.LoggerFactory;
-import io.logging.impl.JdkLogger;
-
-
+/**
+ * Jdk logger
+ * 
+ * @author winflex
+ */
 public class JdkLoggerFactory extends LoggerFactory {
 
 	@Override

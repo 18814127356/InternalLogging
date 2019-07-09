@@ -1,6 +1,4 @@
-package io.logging;
-
-import io.logging.factory.LoggerFactory;
+package logging;
 
 import java.io.ObjectStreamException;
 import java.io.Serializable;
@@ -9,8 +7,7 @@ import java.util.Objects;
 /**
  * {@link Logger}的骨架实现, 实现了所有带{@link LogLevel}参数的方法
  * 
- * @author lixiaohui
- * @date 2017年3月15日
+ * @author winflex
  */
 public abstract class AbstractLogger implements Logger, Serializable {
 
