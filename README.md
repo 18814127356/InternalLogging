@@ -9,7 +9,7 @@ Slf4J > Log4J > Commons-Logging > Jdk Logging
 ``` java
 public class LogTester {
 	
-	private static final InternalLogger logger = InternalLoggerFactory.getInstance(LogTester.class);
+	private static final Logger logger = LoggerFactory.getLogger(LogTester.class);
 	
 	public static void main(String[] args) {
 		logger.trace("trace");

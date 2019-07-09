@@ -61,14 +61,14 @@ public abstract class LoggerFactory {
 	/**
 	 * 获取Logger实例
 	 */
-	public static Logger getInstance(Class<?> clazz) {
-		return getInstance(clazz.getName());
+	public static Logger getLogger(Class<?> clazz) {
+		return getLogger(clazz.getName());
 	}
 
 	/**
 	 * 获取Logger实例
 	 */
-	public static Logger getInstance(String name) {
+	public static Logger getLogger(String name) {
 		return getDefaultFactory().newInstance(name);
 	}
 
