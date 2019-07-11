@@ -1,12 +1,6 @@
 package logging;
 
 /**
- * {@link Logger}工厂类, 提供:
- * <ul>
- * <li>创建{@link Logger}实例的便捷方法</li>
- * <li>用{@link LoggerFactory}.setDefaultFactory(new
- * {@link Log4JLoggerFactory}())设置使用的日志实现</li>
- * </ul>
  * 
  * @author winflex
  */
@@ -41,16 +35,10 @@ public abstract class LoggerFactory {
 		defaultFactory = f;
 	}
 
-	/**
-	 * 获取默认的日志实现工厂实现
-	 */
 	public static LoggerFactory getDefaultFactory() {
 		return defaultFactory;
 	}
 
-	/**
-	 * 设置默认的日志实现工厂实现
-	 */
 	public static void setDefaultFactory(LoggerFactory defaultFactory) {
 		if (defaultFactory == null) {
 			throw new NullPointerException("defaultFactory");
@@ -58,16 +46,10 @@ public abstract class LoggerFactory {
 		LoggerFactory.defaultFactory = defaultFactory;
 	}
 
-	/**
-	 * 获取Logger实例
-	 */
 	public static Logger getLogger(Class<?> clazz) {
 		return getLogger(clazz.getName());
 	}
 
-	/**
-	 * 获取Logger实例
-	 */
 	public static Logger getLogger(String name) {
 		return getDefaultFactory().newInstance(name);
 	}
